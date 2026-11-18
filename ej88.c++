@@ -33,17 +33,19 @@ int countTypes(int numCX, int numPX, int numCY, int numPY, int numG, int numM)
         provNum = 0 - numCX;
         b = numCY + (provNum * numPY);
         c = provNum * numM;
+        Y = (numG + c) / b;
+        X = (numG - Y) / numCX;
         
     }else if (numCX < numPX)
     {
         provNum = 0 - numPX;
-        b = numCY + (provNum * numCY);
+        b = numPY + (provNum * numCY);
         c = provNum * numG;
+        Y = (numM + c) / b;
+        X = (numG - Y) / numCX;
     }
     
-    Y = (numG + c) / b;
-    X = (numM - Y) / numPX;
-    cout << provNum << " " << b <<  " " << c << endl;
+    
     cout << X << " " << Y << endl;
     
     return 0;
